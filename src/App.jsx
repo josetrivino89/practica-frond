@@ -8,8 +8,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import RoutePrivate from './router/routePrivate';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+  //el useState debe estar null para que el usuario si no esta logueado no pueda conectarse:
+   const [user,setUser] = useState(null)
   
   return (
     <>
@@ -22,7 +25,7 @@ function App() {
     <Route path="admin" element={
       <RoutePrivate user={user}>
       <AdminUser/>
-      </RoutePrivate>}/>
+      </RoutePrivate>} />
     <Route path="*" element={<Error/>}/>
     </Routes>
     </BrowserRouter>
